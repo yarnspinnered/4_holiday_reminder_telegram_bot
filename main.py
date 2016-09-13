@@ -3,7 +3,7 @@ import pickle
 import telegram
 import pandas as pd
 import sys
-
+from holiday_getter import holiday
 """
 This script is run once a day and checks the list of holidays stored in holiday_reminders.p
 holiday_reminders.p is generated once using update_holidays but not rerun daily as the website HTML might change
@@ -34,7 +34,7 @@ def daily_check():
             rec[2] = True
     pickle.dump(holiday_records, open("save.p", "wb" ))
 
-def main():
+def main(*args):
     daily_check()
 
 if __name__ == "__main__":
